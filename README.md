@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./src/utils/images/Youtube-Logo-PNG-1.png" alt="My YouTube Clone Logo" width="200"/>
+  <img src="https://img.freepik.com/free-icon/youtube_318-674529.jpg?t=st=1692257029~exp=1692257629~hmac=a2ce8f02ef70192f854e4d2eb82f327515b5f94bc192c5b8da297a9e57cfad82" alt="My YouTube Clone Logo" width="200"/>
   <h1>My YouTube Clone App</h1>
   <p>
     A YouTube clone app built using React.js, Tailwind CSS, React Router, and Redux Toolkit.
