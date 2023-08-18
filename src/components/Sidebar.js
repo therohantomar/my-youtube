@@ -1,11 +1,92 @@
-import React from 'react'
+import { BsCollectionPlay } from "react-icons/bs";
+import YoutubeShorts from "../utils/images/youtube-shorts-logo-15252.png";
+import { MdOutlineLibraryAddCheck } from "react-icons/md";
+import { GrHistory } from "react-icons/gr";
+import { AiOutlinePlaySquare } from "react-icons/ai";
+import { BsStopwatch } from "react-icons/bs";
+import { AiOutlineLike } from "react-icons/ai";
+import { PiHouseBold } from "react-icons/pi";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
-  return (
-    <div className='w-40  sticky border border-black top-20 bottom-0  bg-gray sahdow-xl '>
-      <h1>kbiks</h1>
-    </div>
-  )
-}
+  const isOpen = useSelector((store) => store.toggle.isOpen);
 
-export default Sidebar
+  if (!isOpen)
+    return (
+      <div className="flex flex-col items-center justify-between w-14 h-full ml-4">
+        <ul className="flex flex-col items-center justify-evenly px-2 h-60">
+          <Link to="/">
+            <li   className="flex flex-col items-center    cursor-pointer   hover:bg-gray-200 justify-center ">
+              <PiHouseBold className="text-2xl my-2" />
+              <h1 className="text-xs">Home</h1>
+            </li>
+          </Link>
+          <li className="flex flex-col items-center  cursor-pointer    hover:bg-gray-200 justify-center ">
+            <img
+              src={YoutubeShorts}
+              className=" my-2 text-2xl"
+              alt="youtube shots"
+            />
+            <h1 className="text-xs">Shots</h1>
+          </li>
+          <li className="flex flex-col items-center  cursor-pointer    hover:bg-gray-200 justify-center ">
+            <BsCollectionPlay className="my-2 text-2xl" />
+            <h1 className="text-xs">Subscriptions</h1>
+          </li>
+        </ul>
+      </div>
+    );
+
+  return (
+    <div className="w-60 shadow-xl ">
+      <>
+        <ul className="w-full">
+          <Link to="/">
+            <li className="flex  items-center text-md  cursor-pointer gap-2   hover:bg-gray-200  p-3">
+              <PiHouseBold className=" mr-6 text-xl" />
+              Home
+            </li>
+          </Link>
+          <li className="flex  items-center text-md cursor-pointer  gap-2 hover:bg-gray-200  p-3">
+            <img
+              src={YoutubeShorts}
+              className="mr-6 text-xl"
+              alt="youtube shots"
+            />
+            Shorts
+          </li>
+          <li className="flex  items-center text-md cursor-pointer  gap-2 hover:bg-gray-200  p-3">
+            <BsCollectionPlay className="mr-6 text-xl" />
+            Subscriptions
+          </li>
+        </ul>
+      </>
+
+      <ul className="flex flex-col border-t border-gray-300 mt-4 ">
+        <li className="flex items-center gap-2  text-md  hover:bg-gray-200 p-3">
+          <MdOutlineLibraryAddCheck className="mr-6 text-xl" />
+          Library
+        </li>
+        <li className="flex  items-center text-md gap-2    cursor-pointer hover:bg-gray-200  p-3">
+          <GrHistory className="mr-6 text-xl" />
+          history
+        </li>
+        <li className="flex  items-center text-md cursor-pointer gap-2  hover:bg-gray-200 p-3">
+          <AiOutlinePlaySquare className="mr-6 text-xl" />
+          Your Videos
+        </li>
+        <li className="flex  items-center text-md cursor-pointer  gap-2  hover:bg-gray-200  p-3">
+          <BsStopwatch className="mr-6 text-xl" />
+          Watch Later
+        </li>
+        <li className="flex  items-center text-md cursor-pointer   hover:bg-gray-200  p-3">
+          <AiOutlineLike className="mr-6 text-xl" />
+          Liked videos
+        </li>
+      </ul>
+    </div>
+  );
+};
+
+export default Sidebar;
