@@ -14,7 +14,7 @@ const Sidebar = () => {
 
   if (!isOpen)
     return (
-      <div className="flex flex-col items-center justify-between w-14 h-full ml-4">
+      <div className="flex flex-col items-center justify-between w-14 h-full ml-4 transition duration-500">
         <ul className="flex flex-col items-center justify-evenly px-2 h-60">
           <Link to="/">
             <li   className="flex flex-col items-center    cursor-pointer   hover:bg-gray-200 justify-center ">
@@ -39,7 +39,7 @@ const Sidebar = () => {
     );
 
   return (
-    <div className="w-60 shadow-xl ">
+    <div className="w-60 shadow-xl transition duration-500 ">
       <>
         <ul className="w-full">
           <Link to="/">
@@ -63,7 +63,7 @@ const Sidebar = () => {
         </ul>
       </>
 
-      <ul className="flex flex-col border-t border-gray-300 mt-4 ">
+      <ul className="flex flex-col border-t border-gray-300 mt-10 ">
         <li className="flex items-center gap-2  text-md  hover:bg-gray-200 p-3">
           <MdOutlineLibraryAddCheck className="mr-6 text-xl" />
           Library

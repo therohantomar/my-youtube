@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 
 const VideoBody = () => {
   return (
-    <div className="flex  w-full gap-4 ">
+    <div className="flex gap-8 h-mx scrollbar-hide " >
       <Sidebar />
       <Outlet />
     </div>

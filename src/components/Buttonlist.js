@@ -3,7 +3,7 @@ import { Buttonlistdata } from "../utils/constants";
 
 const Buttonlist = () => {
   return (
-    <div className="flex  scrollbar-hide mb-4 font-semibold  justify-between">
+    <div  className="flex width overflow scrollbar-hide mb-4 -moz-scrollbar-none font-semibold  w-full overflow-x-scroll flex-shrink-0   justify-between">
       {Buttonlistdata.map((items, index) => {
         return <Button key={index} name={items} />;
       })}

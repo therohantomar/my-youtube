@@ -7,3 +7,11 @@
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
+.no-width{
+    scrollbar-width: none;
+}
+
+.-moz-scrollbar-none{
+    overflow: "-moz-scrollbars-none"; 
+    scrollbar-width:none
+}

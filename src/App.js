@@ -26,19 +26,12 @@ const appRouter = createBrowserRouter([
 
 function App() {
   return (
-    <>
+    <div className="w-screen h-screen overflow-hidden">
       <Provider store={store}>
         <Header />
         <RouterProvider router={appRouter} />
-        {/* header
-     nav
-     body 
-       buttonlist
-       videocontainer
-          -shimmer
-          -videocard */}
       </Provider>
-    </>
+    </div>
   );
 }
 

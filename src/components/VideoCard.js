@@ -11,7 +11,7 @@ const VideoCard = ({ item }) => {
   const { viewCount } = statistics;
 
   return (
-    <div className="w-80 cursor-pointer h-max ">
+    <div className="w-80   cursor-pointer h-max ">
       <Link to={"watch?v=" + id}>
         <img
           onClick={() => toggleSidebar(dispatch, isMenu)}
@@ -21,9 +21,9 @@ const VideoCard = ({ item }) => {
         />
       </Link>
       <>
-        <p className="font-semibold font-sans h-12  overflow-hidden text-md">{title}</p>
-        <p className="text-sm text-gray-600">{channelTitle}</p>
-        <h2 className="text-sm text-gray-500">{numify(viewCount)} views.</h2>
+        <p className="font-semibold font-sans h-12 my-2 overflow-hidden text-md">{title}</p>
+        <p className="text-sm my-2 text-gray-600">{channelTitle}</p>
+        <h2 className="text-sm my-2 text-gray-500">{numify(viewCount)} views.</h2>
       </>
     </div>
   );
