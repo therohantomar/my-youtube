@@ -1,5 +1,4 @@
 import "./App.css";
-import Header from "./components/Header";
 import VideoBody from "./components/VideoBody";
 import { Provider } from "react-redux";
 import store from "./utils/store";
