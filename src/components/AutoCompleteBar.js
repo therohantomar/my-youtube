@@ -1,13 +1,26 @@
-import React from 'react'
-import { BiSearch } from 'react-icons/bi'
+import React from "react";
+import { BiSearch } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
-const AutoCompleteBar = ({queryContent}) => {
+const AutoCompleteBar = ({ queryContent, setSearchQuery,setShowSuggestions }) => {
+  
   return (
-    <div className=" mx-8 text-md text-gray-600 flex gap-2 items-center hover:bg-gray-200  bg-white cursor-pointer py-2  w-full">
-    <BiSearch className='text-gray-400'/><h1> {queryContent}</h1>
-    
-   </div>
-  )
-}
+    <>
+      {" "}
+      <Link to={`results?search=${queryContent}`}>
+      <div onClick={()=>{
+        
+        setSearchQuery(queryContent)
+        setShowSuggestions(false)
+      } }
+         className=" mx-8 text-md text-gray-600 flex gap-2 items-center hover:bg-gray-200  bg-white cursor-pointer py-2  w-full"
+      >
+        <BiSearch className="text-gray-400" />
+        <h1> {queryContent}</h1>
+      </div>
+      </Link>
+    </>
+  );
+};
 
-export default AutoCompleteBar
+export default AutoCompleteBar;

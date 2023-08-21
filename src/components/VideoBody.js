@@ -1,14 +1,17 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import { Outlet } from "react-router-dom";
-
+import Header from "./Header";
 
 const VideoBody = () => {
   return (
-    <div className="flex gap-8 h-mx scrollbar-hide " >
-      <Sidebar />
-      <Outlet />
-    </div>
+    <>
+      <Header />
+      <div className="flex gap-8 h-mx scrollbar-hide ">
+        <Sidebar />
+        <Outlet />
+      </div>
+    </>
   );
 };
 

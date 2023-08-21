@@ -17,7 +17,7 @@ const Sidebar = () => {
       <div className="flex flex-col items-center justify-between w-14 h-full ml-4 transition duration-500">
         <ul className="flex flex-col items-center justify-evenly px-2 h-60">
           <Link to="/">
-            <li   className="flex flex-col items-center    cursor-pointer   hover:bg-gray-200 justify-center ">
+            <li className="flex flex-col items-center    cursor-pointer   hover:bg-gray-200 justify-center ">
               <PiHouseBold className="text-2xl my-2" />
               <h1 className="text-xs">Home</h1>
             </li>

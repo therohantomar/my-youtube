@@ -9,6 +9,7 @@ import { toggleSidebar } from "../utils/helper";
 import { handleSearchQuery } from "../utils/helper";
 import useAutoSuggestion from "../utils/hooks/useAutoSuggestion";
 import AutoCompleteBar from "./AutoCompleteBar";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState(" ");
@@ -30,7 +31,8 @@ const Header = () => {
           className=" mx-2 w-32 h-14"
         />
       </span>
-      <span className="col-span-10 mx-16 flex">
+            
+      <span  className="col-span-10 mx-16 flex" >
         <span className="flex flex-col w-2/3">
           <input
             type="text"
@@ -39,20 +41,20 @@ const Header = () => {
             value={searchQuery}
             onChange={(e) => handleSearchQuery(e, setSearchQuery)}
             onFocus={()=>setShowSuggestions(true)}
-            onBlur={()=>setShowSuggestions(false)}
+            // onBlur={()=>setShowSuggestions(false)}
           />{ showSuggestions?
-          <div className="h-max fixed bg-white top-16 rounded-3xl  shadow-xl  w-[37rem] transition duration-300">
+          <div  onBlur={()=>setShowSuggestions(false)} className="h-max fixed bg-white top-16 rounded-3xl  shadow-xl  w-[37rem] transition duration-300">
             {suggestions.length !== 0
-              ? suggestions?.map((query) => {
-                  return <AutoCompleteBar queryContent={query} />;
+              ? suggestions?.map((query,index) => {
+                  return <AutoCompleteBar key={index} queryContent={query} setSearchQuery={setSearchQuery} setShowSuggestions={setShowSuggestions} />;
                 })
               : null}
           </div>:null}
         </span>
 
-        <button className="rounded-r-full      p-2  h-10  cursor-pointer bg-gray-100 border border-gray-300 ">
+       <Link to={`results?search=${searchQuery}`}><button className="rounded-r-full  p-2  h-10  cursor-pointer bg-gray-100 border border-gray-300 ">
           <BiSearch className="mx-2" />
-        </button>
+        </button></Link> 
       </span>
 
       <span className="col-span-1 cursor-pointer flex">
