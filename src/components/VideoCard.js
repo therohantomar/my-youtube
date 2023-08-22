@@ -1,18 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { toggleSidebar } from "../utils/helper";
 import { isMenu } from "../utils/toggleSlice";
 import { useDispatch } from "react-redux";
 import { numify } from "numify";
+import { addVideo } from "../utils/videoSlice";
+
 
 const VideoCard = ({ item }) => {
+  const [searchParams]=useSearchParams()
   const dispatch = useDispatch();
   const { snippet, statistics, id } = item;
   const { thumbnails, title, channelTitle } = snippet;
   const { viewCount } = statistics;
+  const idOfWeb = searchParams?.get("v");
+
 
   return (
-    <div className="w-80   cursor-pointer h-max ">
-      <Link to={"watch?v=" + id}>
+    <div onClick={()=>dispatch(addVideo({title,channelTitle,viewCount}))} className="w-80   cursor-pointer h-max ">
+ 
+      <Link to={idOfWeb?`/watch?v=${id}`:`watch?v=${id}`}>
         <img
           onClick={() => toggleSidebar(dispatch, isMenu)}
           className="w-full h-48 hover:rounded-none rounded-lg"
