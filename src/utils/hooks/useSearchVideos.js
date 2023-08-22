@@ -17,6 +17,7 @@ const useSearchVideos=(searchkey)=>{
       const data = await fetch(YOUTUBE_SEARCH_API + searchkey);
       const json = await data.json();
       setVideos(json?.items);
+      console.log(json)
     } catch {
       console.error("something went wrong !!");
     }

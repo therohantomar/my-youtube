@@ -23,7 +23,7 @@ const Header = () => {
       <span className="col-span-1 xs:col-span-2 flex items-center gap-2">
         <RxHamburgerMenu
           onClick={() => toggleSidebar(dispatch, closeMenu)}
-          className="h-8 cursor-pointer  hover:bg-gray-200 xs:w-8 xs:h-8 rounded-sm w-10  mx-2"
+          className="h-8 cursor-pointer  hover:bg-gray-200 xs:w-8 xs:h-8 rounded-sm w-10 p-1  mx-2"
         />
         <img
           src={`https://www.gstatic.com/youtube/img/promos/growth/b5bebe6c7c48dddb2fb8c605559aac17ebbb1cbb5d3119342d54a830a9a2bbb2_244x112.webp`}
@@ -31,7 +31,7 @@ const Header = () => {
           className=" mx-2 xs:w-24  xs:h-12 xl:w-30 xl:h-14"
         />
       </span>
-      <span  className="col-span-11 xs:col-span-8  mx-16 flex items-center justify-center" >
+      <span   className="col-span-11 xs:col-span-8  mx-16 flex items-center justify-center" >
         <span className="flex flex-col w-2/3">
           <input
             type="text"
@@ -43,10 +43,8 @@ const Header = () => {
             // onBlur={()=>setShowSuggestions(false)}
           />{ showSuggestions?
           <div  onBlur={()=>setShowSuggestions(false)} className="h-max fixed bg-white top-16 rounded-3xl  shadow-xl  w-[37rem] transition duration-300">
-  
             {suggestions.length !== 0
               ? suggestions?.map((query,index) => {
-                
                   return <AutoCompleteBar key={index} queryContent={query} setSearchQuery={setSearchQuery} setShowSuggestions={setShowSuggestions} />;
                 })
               : null}

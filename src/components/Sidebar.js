@@ -7,11 +7,12 @@ import { BsStopwatch } from "react-icons/bs";
 import { AiOutlineLike } from "react-icons/ai";
 import { PiHouseBold } from "react-icons/pi";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 const Sidebar = () => {
   const isOpen = useSelector((store) => store.toggle.isOpen);
-
+  const [searchParams] = useSearchParams();
+  const id = searchParams?.get("v");
   if (!isOpen)
     return (
       <div className="flex flex-col items-center justify-between w-14 h-full ml-4 transition duration-500">
@@ -39,7 +40,13 @@ const Sidebar = () => {
     );
 
   return (
-    <div className="w-60 shadow-xl transition duration-500 ">
+    <div
+      className={
+        id
+          ? "absolute z-20 bg-white top-20 bottom-0 left-0 transition duration-500"
+          : "w-60 shadow-xl transition duration-500"
+      }
+    >
       <>
         <ul className="w-full">
           <Link to="/">
