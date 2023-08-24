@@ -6,24 +6,28 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import VideosContainer from "./components/VideosContainer";
 import Watchpage from "./components/Watchpage";
 import SearchResults from "./components/SearchResults";
-
+import Error from "./components/Error";
 const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <VideoBody />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
         element: <VideosContainer />,
+        errorElement: <Error />,
       },
       {
         path: "watch",
         element: <Watchpage />,
+        errorElement: <Error />,
       },
       {
-        path:"results",
-        element:<SearchResults/>
-      }
+        path: "results",
+        element: <SearchResults />,
+        errorElement: <Error />,
+      },
     ],
   },
 ]);

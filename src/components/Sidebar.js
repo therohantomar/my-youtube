@@ -40,10 +40,10 @@ const Sidebar = () => {
     );
 
   return (
-    <div
+    <div data-testId="sidebar_Opened"
       className={
         id
-          ? "absolute z-20 bg-white top-20 bottom-0 left-0 transition duration-500"
+          ? "absolute z-20 bg-white top-20 bottom-0  overflow-y-scroll scrollbar-hide -moz-scrollbar-none left-0 transition duration-500"
           : "w-60 shadow-xl transition duration-500"
       }
     >
@@ -92,6 +92,30 @@ const Sidebar = () => {
           Liked videos
         </li>
       </ul>
+
+      <ul className="flex flex-col border-t border-gray-300 mt-10 ">
+        <li className="flex items-center gap-2  text-md  hover:bg-gray-200 p-3">
+          <MdOutlineLibraryAddCheck className="mr-6 text-xl" />
+          Library
+        </li>
+        <li className="flex  items-center text-md gap-2    cursor-pointer hover:bg-gray-200  p-3">
+          <GrHistory className="mr-6 text-xl" />
+          history
+        </li>
+        <li className="flex  items-center text-md cursor-pointer gap-2  hover:bg-gray-200 p-3">
+          <AiOutlinePlaySquare className="mr-6 text-xl" />
+          Your Videos
+        </li>
+        <li className="flex  items-center text-md cursor-pointer  gap-2  hover:bg-gray-200  p-3">
+          <BsStopwatch className="mr-6 text-xl" />
+          Watch Later
+        </li>
+        <li className="flex  items-center text-md cursor-pointer   hover:bg-gray-200  p-3">
+          <AiOutlineLike className="mr-6 text-xl" />
+          Liked videos
+        </li>
+      </ul>
+      
     </div>
   );
 };

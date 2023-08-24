@@ -11,7 +11,6 @@ const Comment = ({comment}) => {
       <h1>{comment.name}</h1>
       <p>{comment.Comment}</p>
       </span>
-   
     </div>
     <div className="ml-4">
       {comment.replies ? (

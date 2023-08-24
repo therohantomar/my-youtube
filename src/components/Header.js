@@ -24,6 +24,7 @@ const Header = () => {
         <RxHamburgerMenu
           onClick={() => toggleSidebar(dispatch, closeMenu)}
           className="h-8 cursor-pointer  hover:bg-gray-200 xs:w-8 xs:h-8 rounded-sm w-10 p-1  mx-2"
+          data-testid="toggle"
         />
         <img
           src={`https://www.gstatic.com/youtube/img/promos/growth/b5bebe6c7c48dddb2fb8c605559aac17ebbb1cbb5d3119342d54a830a9a2bbb2_244x112.webp`}
