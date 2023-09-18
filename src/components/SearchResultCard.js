@@ -11,13 +11,11 @@ const SearchResultCard = ({ video }) => {
       {" "}
       {id?.channelId ? (
         <div className="flex gap-4">
-          
             <img
               className="xl:w-40 xl:h-40 xs:w-20 xs:h-20 sm:w-28 sm:h-28 md:w-30 md:h-30 lg:w-32 lg:h-32 rounded-full"
               src={thumbnails?.default?.url}
               alt={title}
             />
-          
           <span className="flex flex-col gap-2">
             <p className="font-semibold font-sans   h-max  flex flex-wrap my-2 overflow-hidden text-md">
               {title}

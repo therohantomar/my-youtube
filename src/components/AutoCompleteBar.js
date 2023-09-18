@@ -13,7 +13,7 @@ const AutoCompleteBar = ({ queryContent, setSearchQuery,setShowSuggestions }) =>
         setSearchQuery(queryContent)
         setShowSuggestions(false)
       } }
-         className=" mx-8 text-md text-gray-600 flex gap-2 items-center hover:bg-gray-200  bg-white cursor-pointer py-2  w-full"
+         className=" mx-8 text-md text-gray-600 flex gap-2 items-center hover:bg-gray-200  bg-white cursor-pointer py-2  2xl:w-full xl:w-5/6 lg:w-40 md:w-40 sm:w-40 xs:w-40"
       >
         <BiSearch className="text-gray-400" />
         <h1> {queryContent}</h1>
