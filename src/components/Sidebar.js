@@ -15,7 +15,7 @@ const Sidebar = () => {
   const id = searchParams?.get("v");
   if (!isOpen)
     return (
-      <div className=" flex-col xs:hidden sm:flex md:flex lg:flex xl:flex 2xl:flex items-center justify-between w-14 h-full ml-4 transition duration-500">
+      <div className=" flex-col xs:hidden sm:hidden md:hidden lg:hidden xl:hidden 2xl:flex items-center justify-between w-14 h-full ml-4 transition duration-500">
         <ul className="flex flex-col items-center justify-evenly px-2 h-60">
           <Link to="/">
             <li className="flex flex-col items-center    cursor-pointer   hover:bg-gray-200 justify-center ">
@@ -44,7 +44,7 @@ const Sidebar = () => {
       className={
         id
           ? "absolute z-20 bg-white top-20 bottom-0  overflow-y-scroll scrollbar-hide -moz-scrollbar-none left-0 transition duration-500"
-          : "w-60 shadow-xl xs:absolute sm:absolute  md:absolute lg:relative xl:relative 2xl:relative bg-white  z-20 bottom-0 left-0 top-20  transition duration-500"
+          : "w-60 shadow-xl xs:absolute sm:absolute  md:absolute lg:static xl:static 2xl:static bg-white  z-20 bottom-0 left-0 top-12  transition duration-500"
       }
     >
       <>
