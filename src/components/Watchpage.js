@@ -14,8 +14,8 @@ const Watchpage = () => {
   if(!id) return <h1>loading.....</h1>
 
   return (
-    <div className=" flex xs:flex-col sm:flex-col md:flex-col lg:flex-col xl:flex-row 2xl:flex-row  gap-2 h-screen    w-full   ">
-      <div className=" flex flex-col  gap-4 h-max overflow-y-scroll scrollbar-hide -moz-scrollbar-none pb-32 w-full p-2 border-r-2   ">
+    <div className=" flex xs:flex-col sm:flex-col overflow-y-scroll scrollbar-hide -moz-scrollbar-none   md:flex-col lg:flex-col xl:flex-row 2xl:flex-row  gap-2 h-max   w-full   ">
+      <div className=" flex flex-col  gap-4 h-max  overflow-y-scroll scrollbar-hide -moz-scrollbar-none  pb-32 w-full p-2 border-r-2   ">
         <span className="xl:w-[58rem] my-2 lg:w-[38rem] md:w-[32rem] sm:w-[24rem] xs:h-[12rem] sm:h-[16rem] md:h-[20rem] lg:h-[22rem] xl:h-[32rem] ">
           <iframe
            className="w-full h-full"
