@@ -7,7 +7,7 @@ const VideoBody = () => {
   return (
     <>
       <Header />
-      <div className="flex gap-8 h-mx scrollbar-hide ">
+      <div className="flex gap-8 h-max scrollbar-hide ">
         <Sidebar />
         <Outlet />
       </div>

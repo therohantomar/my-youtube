@@ -19,7 +19,7 @@ const Header = () => {
 
 
   return (
-    <nav className="grid grid-flow-col bg-white  w-full z-10   p-4">
+    <nav className="grid grid-flow-col bg-white   w-full z-10 p-2  ">
       <span className="col-span-1 xs:col-span-2 flex items-center gap-2">
         <RxHamburgerMenu
           onClick={() => toggleSidebar(dispatch, closeMenu)}
@@ -29,7 +29,7 @@ const Header = () => {
         <img
           src={`https://www.gstatic.com/youtube/img/promos/growth/b5bebe6c7c48dddb2fb8c605559aac17ebbb1cbb5d3119342d54a830a9a2bbb2_244x112.webp`}
           alt="Youtubelogo"
-          className=" mx-2 xs:w-24  xs:h-12 xl:w-30 xl:h-14"
+          className=" mx-2 xs:w-24 xs:hidden sm:hidden md:hidden lg:flex xl:flex 2xl:flex  xs:h-12 xl:w-30 xl:h-14"
         />
       </span>
       <span   className="col-span-11 xs:col-span-8  mx-16 flex items-center justify-center" >

@@ -16,12 +16,12 @@ const VideoCard = ({ item }) => {
 
 
   return (
-    <div onClick={()=>dispatch(addVideo({title,channelTitle,viewCount}))} className="w-80   cursor-pointer h-max ">
+    <div onClick={()=>dispatch(addVideo({title,channelTitle,viewCount}))} className="w-80  cursor-pointer h-max ">
  
       <Link to={idOfWeb?`/watch?v=${id}`:`watch?v=${id}`}>
         <img
           onClick={() => toggleSidebar(dispatch, isMenu)}
-          className="w-full h-48 hover:rounded-none rounded-lg"
+           className="w-full xs:h-36  sm:h-40 md:h-40 lg:h-40 xl:h-48 2xl:h-48  hover:rounded-none rounded-lg"
           src={thumbnails?.medium?.url}
           alt={title}
         />
