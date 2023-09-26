@@ -11,7 +11,7 @@ import AutoCompleteBar from "./AutoCompleteBar";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const [searchQuery, setSearchQuery] = useState(" ");
+  const [searchQuery, setSearchQuery] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(true);
   const suggestions = useAutoSuggestion(searchQuery);
   const dispatch = useDispatch();
