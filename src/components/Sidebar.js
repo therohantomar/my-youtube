@@ -8,17 +8,22 @@ import { AiOutlineLike } from "react-icons/ai";
 import { PiHouseBold } from "react-icons/pi";
 import { useSelector } from "react-redux";
 import { Link, useSearchParams } from "react-router-dom";
+import { isMenu } from "../utils/toggleSlice";
+import { useDispatch } from "react-redux";
 
 const Sidebar = () => {
   const isOpen = useSelector((store) => store.toggle.isOpen);
+  const dispatch=useDispatch()
   const [searchParams] = useSearchParams();
   const id = searchParams?.get("v");
+
+
   if (!isOpen)
     return (
       <div className=" flex-col xs:hidden sm:hidden md:hidden lg:hidden xl:hidden 2xl:flex items-center justify-between w-14 h-full ml-4 transition duration-500">
         <ul className="flex flex-col items-center justify-evenly px-2 h-60">
           <Link to="/">
-            <li className="flex flex-col items-center    cursor-pointer   hover:bg-gray-200 justify-center ">
+            <li   className="flex flex-col items-center    cursor-pointer   hover:bg-gray-200 justify-center ">
               <PiHouseBold className="text-2xl my-2" />
               <h1 className="text-xs">Home</h1>
             </li>
@@ -43,14 +48,14 @@ const Sidebar = () => {
     <div data-testId="sidebar_Opened"
       className={
         id
-          ? "absolute z-20 bg-white top-20 bottom-0  overflow-y-scroll scrollbar-hide -moz-scrollbar-none left-0 transition duration-500"
+          ? "absolute z-20 bg-white top-16 bottom-0  overflow-y-scroll scrollbar-hide -moz-scrollbar-none left-0 transition duration-500"
           : "w-60 shadow-xl xs:absolute sm:absolute  md:absolute lg:static xl:static 2xl:static bg-white  z-20 bottom-0 left-0 top-12  transition duration-500"
       }
     >
       <>
         <ul className="w-full">
           <Link to="/">
-            <li className="flex  items-center text-md  cursor-pointer gap-2   hover:bg-gray-200  p-3">
+            <li  onClick={() =>dispatch(isMenu())} className="flex  items-center text-md  cursor-pointer gap-2   hover:bg-gray-200  p-3">
               <PiHouseBold className=" mr-6 text-xl" />
               Home
             </li>

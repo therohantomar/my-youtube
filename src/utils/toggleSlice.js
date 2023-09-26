@@ -11,7 +11,7 @@ const toggleSlice=createSlice({
         },
         isMenu:(state)=>{
             state.isOpen=false
-
+            
         }
     }
 })

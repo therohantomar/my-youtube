@@ -2,9 +2,8 @@ import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { BiSearch } from "react-icons/bi";
 import { BiUser } from "react-icons/bi";
-import { FaBell } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { closeMenu } from "../utils/toggleSlice";
+import { closeMenu, isMenu } from "../utils/toggleSlice";
 import { toggleSidebar } from "../utils/helper";
 import { handleSearchQuery } from "../utils/helper";
 import useAutoSuggestion from "../utils/hooks/useAutoSuggestion";
@@ -13,10 +12,9 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState(" ");
-  const [showSuggestions,setShowSuggestions]=useState(true)
+  const [showSuggestions, setShowSuggestions] = useState(true);
   const suggestions = useAutoSuggestion(searchQuery);
   const dispatch = useDispatch();
-
 
   return (
     <nav className="grid grid-flow-col bg-white   w-full z-10 p-2  ">
@@ -32,7 +30,7 @@ const Header = () => {
           className=" mx-2 xs:w-24 xs:hidden sm:hidden md:hidden lg:flex xl:flex 2xl:flex  xs:h-12 xl:w-30 xl:h-14"
         />
       </span>
-      <span   className="col-span-11 xs:col-span-8  mx-16 flex items-center justify-center" >
+      <span className="col-span-11 xs:col-span-8  mx-16 flex items-center justify-center">
         <span className="flex flex-col w-2/3">
           <input
             type="text"
@@ -40,25 +38,38 @@ const Header = () => {
             className="w-full border outline-inherit px-6 text-md xs:h-8 h-10 border-gray-300 rounded-l-full"
             value={searchQuery}
             onChange={(e) => handleSearchQuery(e, setSearchQuery)}
-            onFocus={()=>setShowSuggestions(true)}
-            // onBlur={()=>setShowSuggestions(false)}
-          />{ showSuggestions?
-          <div  onBlur={()=>setShowSuggestions(false)} className="h-max fixed bg-white top-16 rounded-3xl  shadow-xl  w-[37rem] transition duration-300">
-            {suggestions.length !== 0
-              ? suggestions?.map((query,index) => {
-                  return <AutoCompleteBar key={index} queryContent={query} setSearchQuery={setSearchQuery} setShowSuggestions={setShowSuggestions} />;
-                })
-              : null}
-          </div>:null}
+            onFocus={() => setShowSuggestions(true)}
+            onBlur={() => setShowSuggestions(false)}
+            onClick={() => dispatch(isMenu())}
+          />
+          {showSuggestions ? (
+            <div className="h-max absolute bg-white top-16 rounded-3xl  z-10 shadow-xl sm:w-[15rem] md:w-[20rem] lg:w-[28rem] xl:w-[35rem] 2xl:w-[35rem] transition duration-300">
+              {suggestions.length !== 0
+                ? suggestions?.map((query, index) => {
+                    return (
+                      <AutoCompleteBar
+                        onBlur={() => setShowSuggestions(false)}
+                        key={index}
+                        queryContent={query}
+                        setSearchQuery={setSearchQuery}
+                        setShowSuggestions={setShowSuggestions}
+                      />
+                    );
+                  })
+                : null}
+            </div>
+          ) : null}
         </span>
 
-       <Link to={`results?search=${searchQuery}`}><button className="rounded-r-full  p-2  xs:h-8 h-10  cursor-pointer bg-gray-100 border-2 border-gray-300 ">
-          <BiSearch className="mx-2" />
-        </button></Link>
+        <Link to={`results?search=${searchQuery}`}>
+          <button className="rounded-r-full  p-2  xs:h-8 h-10  cursor-pointer bg-gray-100 border-2 border-gray-300 ">
+            <BiSearch className="mx-2" />
+          </button>
+        </Link>
       </span>
 
       <span className="col-span-1 xs:col-span-2 cursor-pointer flex items-center justify-center">
-        <FaBell className="mx-6" />
+  
         <BiUser />
       </span>
     </nav>
