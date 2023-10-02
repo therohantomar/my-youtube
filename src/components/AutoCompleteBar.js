@@ -8,7 +8,7 @@ const AutoCompleteBar = ({
   setShowSuggestions,
 }) => {
   return (
-    <>
+    <div>
       {" "}
       <Link to={`results?search=${queryContent}`}>
         <div
@@ -22,7 +22,7 @@ const AutoCompleteBar = ({
           <h1> {queryContent}</h1>
         </div>
       </Link>
-    </>
+    </div>
   );
 };
 

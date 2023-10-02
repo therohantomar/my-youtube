@@ -2,7 +2,9 @@ import Buttonlist from "./Buttonlist";
 import useVideos from "../utils/hooks/useVideos";
 import VideoCard from "./VideoCard";
 import ShimmerCard from "./ShimmerCard";
+import useScrollToTop from "../utils/hooks/useScrollToTop";
 const VideosContainer = () => {
+  useScrollToTop()
   const videos = useVideos();
   //early return
   if (videos.length === 0)

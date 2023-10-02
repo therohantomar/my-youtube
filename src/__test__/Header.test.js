@@ -1,17 +1,25 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import {  render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
+import '@testing-library/jest-dom'
 import store from "../utils/store";
-import { StaticRouter } from "react-router-dom/server";
 import App from "../App";
 
-test("header loading on browser", async() => {
-  render(<App />);
-  const menu = screen.getByTestId("toggle");
-  fireEvent.click(menu);
-
-  await waitFor(()=>{
-    const sidebar=screen.getByTestId("sidebarOpened")
-    expect(sidebar).toBeInTheDocument()
-  })
- 
+test("sidebar loading on browser", async () => {
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+  const sidebar = screen.queryByTestId("sidebar_Opened");
+  expect(sidebar).toBeInTheDocument();
 });
+
+test("menu bar loading on navbar",()=>{
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+   const  menu=screen.getByTestId("toggle")
+  expect(menu).toBeInTheDocument()
+})

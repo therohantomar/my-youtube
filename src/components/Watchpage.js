@@ -5,11 +5,13 @@ import SubscribeButton from "./SubscribeButton";
 import { useSelector } from "react-redux";
 import { numify } from "numify";
 import CommentsContainer from "./CommentsContainer";
+import useScrollToTop from "../utils/hooks/useScrollToTop";
 
 const Watchpage = () => {
   const video = useSelector((store) => store?.video?.videoItems);
   const [searchParams] = useSearchParams();
   const id = searchParams.get("v");
+  useScrollToTop()
 
   if(!id) return <h1>loading.....</h1>
 

@@ -18,7 +18,8 @@ const Header = () => {
 
   return (
     <nav className="grid grid-flow-col bg-white   w-full z-10 p-2  ">
-      <span className="col-span-1 xs:col-span-2 flex items-center gap-2">
+          
+      <div  className="col-span-1 xs:col-span-2 flex items-center gap-2">
         <RxHamburgerMenu
           onClick={() => toggleSidebar(dispatch, closeMenu)}
           className="h-8 cursor-pointer  hover:bg-gray-200 xs:w-8 xs:h-8 rounded-sm w-10 p-1  mx-2"
@@ -29,7 +30,7 @@ const Header = () => {
           alt="Youtubelogo"
           className=" mx-2 xs:w-24 xs:hidden sm:hidden md:hidden lg:flex xl:flex 2xl:flex  xs:h-12 xl:w-30 xl:h-14"
         />
-      </span>
+      </div>
       <span className="col-span-11 xs:col-span-8  mx-16 flex items-center justify-center">
         <span className="flex flex-col w-2/3">
           <input
@@ -39,11 +40,11 @@ const Header = () => {
             value={searchQuery}
             onChange={(e) => handleSearchQuery(e, setSearchQuery)}
             onFocus={() => setShowSuggestions(true)}
-            onBlur={() => setShowSuggestions(false)}
+            
             onClick={() => dispatch(isMenu())}
           />
           {showSuggestions ? (
-            <div className="h-max absolute bg-white top-16 rounded-3xl  z-10 shadow-xl sm:w-[15rem] md:w-[20rem] lg:w-[28rem] xl:w-[35rem] 2xl:w-[35rem] transition duration-300">
+            <div onBlur={() => setShowSuggestions(false)} className="h-max absolute bg-white top-16 rounded-3xl  z-10 shadow-xl sm:w-[15rem] md:w-[20rem] lg:w-[28rem] xl:w-[35rem] 2xl:w-[35rem] transition duration-300">
               {suggestions.length !== 0
                 ? suggestions?.map((query, index) => {
                     return (
@@ -69,7 +70,6 @@ const Header = () => {
       </span>
 
       <span className="col-span-1 xs:col-span-2 cursor-pointer flex items-center justify-center">
-  
         <BiUser />
       </span>
     </nav>
