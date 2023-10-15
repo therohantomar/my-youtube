@@ -2,6 +2,12 @@ export function toggleSidebar(dispatch, closeMenu) {
   dispatch(closeMenu());
 }
 
+export const handleSubmitChat=(e, dispatch,addMessages,message, setMessage)=>{
+  e.preventDefault()
+  dispatch(addMessages({name:"rohan",message:message}))
+  setMessage("")
+}
+
 export function handleSearchQuery(e,setSearchQuery){
   setSearchQuery(e.target.value)
 }
