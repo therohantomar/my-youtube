@@ -7,12 +7,12 @@ const searchSlice = createSlice({
   },
   reducers: {
     cacheResults: (state, action) => {
+
       if (state.suggestions.length > 4) {
         const ObjectEntries=Object.entries(state.suggestions)
         ObjectEntries.pop()
         const newObj=ObjectEntries.fromEntries()
         state.suggestions=newObj
-        console.log(state.suggestions)
       }
       const newObj = { ...state.suggestions, ...action.payload };
       state.suggestions = newObj;

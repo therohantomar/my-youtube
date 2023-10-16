@@ -12,8 +12,6 @@ const chatMessage=useSelector(store=>store.chat.message)
 const dispatch=useDispatch()
 useChatMessage()
 
-
-
   return (
     <>
     <div className="border-2 flex flex-col-reverse overflow-y-scroll items-center border-black rounded-lg h-[400px] bg-slate-100">

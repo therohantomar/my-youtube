@@ -26,7 +26,6 @@ const useAutoSuggestion = (searchQuery) => {
     try {
       const data = await fetch(YOUTUBE_AUTOCOMPLETE_API + searchQuery);
       const Queries = await data.json();
-    
       setSuggestions(Queries[1]);
       dispatch(
         cacheResults({
